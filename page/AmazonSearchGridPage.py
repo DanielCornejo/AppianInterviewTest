@@ -1,7 +1,7 @@
 from selenium.webdriver.common.by import By
 
 
-class AmazonSearchGridPage():
+class AmazonSearchGridPage:
 
     def __init__(self, browser):
         self.__browser = browser
