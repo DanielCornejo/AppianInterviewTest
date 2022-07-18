@@ -14,3 +14,12 @@ class AmazonItemBehavior(AmazonItemPage):
         else:
             return False
 
+    def get_price(self):
+        return self._get_item_price()
+
+    def add_to_cart(self):
+        self._click_on_add_to_cart()
+
+    def added_to_cart_message_displayed(self):
+        return self._is_add_to_cart_message()
+

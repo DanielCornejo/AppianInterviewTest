@@ -10,6 +10,12 @@ class AmazonSearchGridBehavior(AmazonSearchGridPage):
         index_str = str(index)
         self._access_item_by_index(index_str)
 
+    def next_page(self):
+        self._click_on_next()
+
+    def get_page(self):
+        return self._get_page_number()
+
     def is_search_loaded(self):
         return self._search_loaded()
 
