@@ -2,6 +2,7 @@ import time
 
 from selenium import webdriver
 from selenium.common import TimeoutException
+from selenium.webdriver import ActionChains
 from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.support.wait import WebDriverWait
 
@@ -31,6 +32,11 @@ class Browser:
 
     def get_elements(self, by, locator):
         return self.__driver.find_elements(by, locator)
+
+    def scroll_into_view(self, locator):
+        element = self.get_element(locator[0], locator[1])
+        actions = ActionChains(self.__driver)
+        actions.move_to_element(element).perform()
 
     def wait_for_element_presence(self, locator, wait_time):
         wait = WebDriverWait(self.get_driver(), wait_time)
