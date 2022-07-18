@@ -22,6 +22,15 @@ class AmazonSearchGridPage:
                                           + "//span[contains(@class,'a-text-normal')]")
         return item.text
 
+    def _click_on_next(self):
+        locator = (By.XPATH, "//a[contains(@class,'s-pagination-next')]")
+        self.__browser.scroll_into_view(locator)
+        self.__browser.get_element(locator[0], locator[1]).click()
+
+    def _get_page_number(self):
+        locator = (By.XPATH, "//span[contains(@class,'s-pagination-selected')]")
+        return self.__browser.get_element(locator[0], locator[1]).text
+
     def _search_loaded(self):
         locator = (By.XPATH, "//div[contains(@class,'search-results')]/div")
         if self.__browser.wait_for_elements_presence(locator, 10) is not None:

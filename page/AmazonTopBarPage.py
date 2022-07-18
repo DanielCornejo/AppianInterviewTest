@@ -17,3 +17,11 @@ class AmazonTopBarPage:
         search_button = self.__browser.get_element(locator[0], locator[1])
         search_button.click()
 
+    def click_on_cart(self):
+        locator = (By.ID, "nav-cart-text-container")
+        self.__browser.wait_for_element_to_be_clickable(locator, 10)
+        cart_button = self.__browser.get_element(locator[0], locator[1])
+        cart_button.click()
+
+
+
